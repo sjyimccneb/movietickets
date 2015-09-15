@@ -2,34 +2,42 @@
 
 describe("Movie", function() {
   it("creates a movie with the given specifications", function() {
-    var testMovie = new Movie("Mad Max: Fury Road", false, ["10:30", "13:00", "15:30", "18:00", "20:30"], 8.3, "R", "George Miller", ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
-    expect(testMovie.title).to.eql("Mad Max: Fury Road");
-    expect(testMovie.newRelease).to.eql(false);
-    expect(testMovie.times).to.eql(["10:30", "13:00", "15:30", "18:00", "20:30"]);
-    expect(testMovie.score).to.eql(8.3);
-    expect(testMovie.rating).to.eql("R");
-    expect(testMovie.director).to.eql("George Miller");
-    expect(testMovie.actors).to.eql(["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
+    var madMax = new Movie("Mad Max: Fury Road", false, ["10:30", "13:00", "15:30", "18:00", "20:30"], 8.3, "R", "George Miller", ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
+    expect(madMax.title).to.eql("Mad Max: Fury Road");
+    expect(madMax.newRelease).to.eql(false);
+    expect(madMax.times).to.eql(["10:30", "13:00", "15:30", "18:00", "20:30"]);
+    expect(madMax.score).to.eql(8.3);
+    expect(madMax.rating).to.eql("R");
+    expect(madMax.director).to.eql("George Miller");
+    expect(madMax.actors).to.eql(["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
   });
 
   it("formats the array of actors as a single string", function() {
-    var testMovie = new Movie("Mad Max: Fury Road", false, ["10:30", "13:00", "15:30", "18:00", "20:30"], 8.3, "R", "George Miller", ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
-    expect(testMovie.allActors()).to.eql("Tom Hardy, Charlize Theron, Nicholas Hoult");
+    var madMax = new Movie("Mad Max: Fury Road", false, ["10:30", "13:00", "15:30", "18:00", "20:30"], 8.3, "R", "George Miller", ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
+    expect(madMax.allActors()).to.eql("Tom Hardy, Charlize Theron, Nicholas Hoult");
   })
 });
 
 describe("Ticket", function() {
   it("creates a ticket takes user inputs based on a movie object's attributes", function() {
-    var testMovie = new Movie("Mad Max: Fury Road", false, ["10:30", "13:00", "15:30", "18:00", "20:30"], 8.3, "R", "George Miller", ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
-    var testTicket = new Ticket(testMovie.title, testMovie.newRelease, testMovie.times[3], "senior", true);
-    expect(testTicket.movie).to.eql(testMovie.title);
-    expect(testTicket.newRelease).to.eql(false);
-    expect(testTicket.time).to.eql(testMovie.times[3]);
-    expect(testTicket.age).to.eql("senior");
-    expect(testTicket.threeD).to.eql(true);
+    var madMax = new Movie("Mad Max: Fury Road", false, ["10:30", "13:00", "15:30", "18:00", "20:30"], 8.3, "R", "George Miller", ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
+    var madMaxTicket = new Ticket(madMax.title, madMax.newRelease, madMax.times[3], "senior", true);
+    expect(madMaxTicket.movie).to.eql(madMax.title);
+    expect(madMaxTicket.newRelease).to.eql(false);
+    expect(madMaxTicket.time).to.eql(madMax.times[3]);
+    expect(madMaxTicket.age).to.eql("senior");
+    expect(madMaxTicket.threeD).to.eql(true);
   });
-  //
-  // it("", function() {
-  //
-  // });
+
+  it("tells you the price for Mad Max", function() {
+    var madMax = new Movie("Mad Max: Fury Road", false, ["10:30", "13:00", "15:30", "18:00", "20:30"], 8.3, "R", "George Miller", ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
+    var madMaxTicket = new Ticket(madMax.title, madMax.newRelease, madMax.times[3], "senior", true);
+    expect(madMaxTicket.price()).to.eql("$5.5");
+  });
+
+  it("tells you the price of Star Wars: The Force Awakes", function() {
+    var starWarsTFA = new Movie("Star Wars: The Force Awakes", true, ["10:30", "13:00", "15:30", "18:00", "20:30"], 8.3, "R", "George Miller", ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
+    var starWarsTFATicket = new Ticket(starWarsTFA.title, starWarsTFA.newRelease, starWarsTFA.times[1], "child", true);
+    expect(starWarsTFATicket.price()).to.eql("$4.75");
+  });
 });
