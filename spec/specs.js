@@ -11,6 +11,11 @@ describe("Movie", function() {
     expect(testMovie.director).to.eql("George Miller");
     expect(testMovie.actors).to.eql(["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
   });
+
+  it("formats the array of actors as a single string", function() {
+    var testMovie = new Movie("Mad Max: Fury Road", false, ["10:30", "13:00", "15:30", "18:00", "20:30"], 8.3, "R", "George Miller", ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
+    expect(testMovie.allActors()).to.eql("Tom Hardy, Charlize Theron, Nicholas Hoult");
+  })
 });
 
 describe("Ticket", function() {

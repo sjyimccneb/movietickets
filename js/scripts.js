@@ -17,3 +17,7 @@ function Ticket(movie, newRelease, time, age, threeD) {
   this.age = age;
   this.threeD = threeD;
 }
+
+Movie.prototype.allActors = function () {
+  return this.actors.join(", ");
+};
