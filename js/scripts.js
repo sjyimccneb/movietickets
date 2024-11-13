@@ -55,7 +55,7 @@ Ticket.prototype.price = function() {
 var seedMovies = function () {
   var madMax = new Movie("Mad Max: Fury Road", false, ["10:30", "13:00", "15:30", "18:00", "20:30"], 8.3, "R", "George Miller", ["Tom Hardy", "Charlize Theron", "Nicholas Hoult"]);
 
-  var movie2 = new Movie("movie 2", false, ["4:20", "10:27", "13:04", "15:39", "18:12", "20:31"], 2.2, "NC-17", "Prince Billy Price", ["Tom Brady", "World", "The Queen of Wales"]);
+  var movie2 = new Movie("movie 2", false, ["4:45", "10:27", "13:04", "15:39", "18:12", "20:31"], 2.2, "NC-17", "Prince Billy Price", ["Tom Brady", "World", "The Queen of Wales"]);
 
   var fastAndFurious95 = new Movie("The Fast and The Furious: We Need to Buy a New Stereo From Radioshack", true, ["10:30", "13:00", "15:30", "18:00", "20:30"], 0.1, "G", "Tricky", ["Lyndon Johnson", "Jacqueline Onassis", "Arlene Schnitzer"]);
 
